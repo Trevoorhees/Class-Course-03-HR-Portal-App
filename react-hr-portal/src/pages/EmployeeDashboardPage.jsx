@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import SectionCard from '../components/SectionCard';
 import { useAuth } from '../context/AuthContext';
 
-const API_URL = 'http://localhost:3001';
+const API_URL = 'http://localhost:3000';
 
 function EmployeeDashboardPage() {
   const { currentUser, logout } = useAuth();
@@ -36,6 +36,7 @@ function EmployeeDashboardPage() {
       setEmployeeProfile(employeeData[0] || null);
       setEmployeeLeaves(leaveData);
     } catch (error) {
+      console.error('Employee dashboard load error:', error);
       setMessage('Could not load employee dashboard data.');
     }
   }
@@ -80,6 +81,7 @@ function EmployeeDashboardPage() {
       loadEmployeeData();
     } catch (error) {
       setMessage('Could not submit leave request.');
+      console.error('Leave request submit error:', error);
     }
   }
 

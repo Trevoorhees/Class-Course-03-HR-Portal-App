@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const API_URL = 'http://localhost:3001';
+const API_URL = 'http://localhost:3000';
 
 function SignupPage() {
   const [formData, setFormData] = useState({
@@ -88,6 +88,7 @@ function SignupPage() {
 
       navigate('/login');
     } catch (error) {
+      console.error('Signup error:', error);
       setMessage('Could not save the new account. Please make sure JSON Server is running.');
     } finally {
       setSaving(false);

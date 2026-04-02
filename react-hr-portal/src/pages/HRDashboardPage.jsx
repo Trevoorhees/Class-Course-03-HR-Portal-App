@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import SectionCard from '../components/SectionCard';
 import { useAuth } from '../context/AuthContext';
 
-const API_URL = 'http://localhost:3001';
+const API_URL = 'http://localhost:3000';
 
 const emptyEmployeeForm = {
   name: '',
@@ -44,6 +44,7 @@ function HRDashboardPage() {
       setEmployees(employeeData);
       setLeaveRequests(leaveData);
     } catch (error) {
+      console.error('Dashboard load error:', error);
       setMessage('Could not load dashboard data. Start JSON Server and refresh.');
     } finally {
       setLoading(false);
@@ -84,6 +85,7 @@ function HRDashboardPage() {
       setMessage(editingId ? 'Employee updated successfully.' : 'Employee added successfully.');
       loadDashboardData();
     } catch (error) {
+      console.error('Employee save error:', error);
       setMessage('Could not save employee data.');
     }
   }
@@ -109,6 +111,7 @@ function HRDashboardPage() {
       loadDashboardData();
     } catch (error) {
       setMessage('Could not delete employee.');
+      console.error('Delete employee error:', error);
     }
   }
 

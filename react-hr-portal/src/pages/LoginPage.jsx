@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-const API_URL = 'http://localhost:3001/users';
+const API_URL = 'http://localhost:3000/users';
 
 function LoginPage() {
   const [formData, setFormData] = useState({
@@ -49,6 +49,7 @@ function LoginPage() {
       login(matchedUser);
       navigate(matchedUser.role === 'hr' ? '/hr-dashboard' : '/employee-dashboard');
     } catch (error) {
+      console.error('Login error:', error);
       setMessage('Could not connect to the server. Please start JSON Server first.');
     } finally {
       setLoading(false);
