@@ -1,0 +1,80 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Olivia HR",
+      "email": "hr@portal.com",
+      "password": "hr123",
+      "role": "hr",
+      "department": "Human Resources",
+      "phone": "555-100-2000"
+    },
+    {
+      "id": 2,
+      "name": "Ethan Employee",
+      "email": "employee@portal.com",
+      "password": "emp123",
+      "role": "employee",
+      "department": "Engineering",
+      "phone": "555-300-4000"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Ethan Employee",
+      "email": "employee@portal.com",
+      "department": "Engineering",
+      "position": "Frontend Developer",
+      "status": "Active",
+      "joinDate": "2025-01-15",
+      "phone": "555-300-4000",
+      "address": "123 Main Street, Los Angeles, CA"
+    },
+    {
+      "id": 2,
+      "name": "Mia Chen",
+      "email": "mia.chen@portal.com",
+      "department": "Finance",
+      "position": "Account Analyst",
+      "status": "Active",
+      "joinDate": "2024-08-11",
+      "phone": "555-600-7000",
+      "address": "455 Cedar Ave, Seattle, WA"
+    }
+  ],
+  "leaveRequests": [
+    {
+      "id": 1,
+      "employeeName": "Ethan Employee",
+      "employeeEmail": "employee@portal.com",
+      "startDate": "2026-04-15",
+      "endDate": "2026-04-18",
+      "type": "Annual Leave",
+      "reason": "Family event",
+      "status": "Pending"
+    },
+    {
+      "id": 2,
+      "employeeName": "Mia Chen",
+      "employeeEmail": "mia.chen@portal.com",
+      "startDate": "2026-05-01",
+      "endDate": "2026-05-02",
+      "type": "Sick Leave",
+      "reason": "Medical appointment",
+      "status": "Approved"
+    }
+  ],
+  "policies": [
+    {
+      "id": 1,
+      "title": "HR Policy",
+      "content": "Employees must maintain accurate records and follow all company procedures related to attendance, conduct, and confidentiality."
+    },
+    {
+      "id": 2,
+      "title": "Employee Policy",
+      "content": "Employees should use the portal to update personal information, submit leave requests, and review internal guidelines."
+    }
+  ]
+}

@@ -1,45 +1,46 @@
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
-import HrDashboard from "./components/HrDashboard";
-import EmployeeDashboard from "./components/EmployeeDashboard";
-import AddEmployee from "./components/AddEmployee";
-import ViewAllEmployees from "./components/ViewAllEmployees";
-import EmployeeView from "./components/EmployeeView";
-import ViewAllLeaveInfo from "./components/ViewAllLeaveInfo";
-import ApplyLeave from "./components/ApplyLeave";
-import ViewLeaveStatus from "./components/ViewLeaveStatus";
+import { Navigate, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import ProtectedRoute from './components/ProtectedRoute';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import HRPolicyPage from './pages/HRPolicyPage';
+import EmployeePolicyPage from './pages/EmployeePolicyPage';
+import AboutPage from './pages/AboutPage';
+import HRDashboardPage from './pages/HRDashboardPage';
+import EmployeeDashboardPage from './pages/EmployeeDashboardPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
     <div className="app-shell">
-      <div className="app-branding">
-        <p className="app-kicker">Workforce Management</p>
-        <h1>HR Portal</h1>
-        <p className="app-subtitle">
-          A streamlined employee and leave management experience with a clean,
-          modern interface.
-        </p>
-      </div>
-
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="signUp" element={<SignUp />} />
-
-        <Route path="hrHome" element={<HrDashboard />}>
-          <Route path="addEmployee" element={<AddEmployee />} />
-          <Route path="viewEmployees" element={<ViewAllEmployees />} />
-          <Route path="viewEmployee/:employeeId" element={<EmployeeView />} />
-          <Route path="viewAllLeaveInfo" element={<ViewAllLeaveInfo />} />
-        </Route>
-
-        <Route path="employeeHome" element={<EmployeeDashboard />}>
-          <Route path="viewEmployee" element={<EmployeeView />} />
-          <Route path="applyLeave" element={<ApplyLeave />} />
-          <Route path="viewLeaveStatus" element={<ViewLeaveStatus />} />
-        </Route>
-      </Routes>
+      <Navbar />
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/hr-policy" element={<HRPolicyPage />} />
+          <Route path="/employee-policy" element={<EmployeePolicyPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route
+            path="/hr-dashboard"
+            element={
+              <ProtectedRoute allowedRoles={["hr"]}>
+                <HRDashboardPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/employee-dashboard"
+            element={
+              <ProtectedRoute allowedRoles={["employee"]}>
+                <EmployeeDashboardPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
     </div>
   );
 }

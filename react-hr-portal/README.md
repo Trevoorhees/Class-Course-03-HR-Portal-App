@@ -1,16 +1,42 @@
-# React + Vite
+# HR Portal React Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a Course-end HR Portal built with Vite, React, React Router, and JSON Server.
 
-Currently, two official plugins are available:
+## Features
+- Login and signup
+- Role-based access control for HR and employee users
+- HR dashboard for managing employee records
+- Employee dashboard for viewing a profile and submitting leave requests
+- Policy pages and about page
+- Responsive layout and custom CSS theme
+- JSON-based mock backend using JSON Server
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Sample Login Credentials
+- HR: `hr@portal.com` / `hr123`
+- Employee: `employee@portal.com` / `emp123`
 
-## React Compiler
+## Run the Project
+Install dependencies:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+Start the React app:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm run dev
+```
+
+In a second terminal, start JSON Server:
+
+```bash
+npm run server
+```
+
+## Backend URL
+JSON Server runs at:
+
+```text
+http://localhost:3001
+```
