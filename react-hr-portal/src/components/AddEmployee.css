@@ -1,0 +1,18 @@
+.add-employee-card {
+  padding: 28px;
+}
+
+.card-header-block {
+  margin-bottom: 22px;
+}
+
+.card-header-block h2 {
+  margin: 0;
+  color: var(--heading);
+}
+
+.card-header-block p:last-child {
+  margin: 10px 0 0;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
